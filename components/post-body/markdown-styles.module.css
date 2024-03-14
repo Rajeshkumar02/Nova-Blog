@@ -1,5 +1,5 @@
-/* .markdown {
-  @apply text-lg leading-relaxed;
+.markdown {
+  @apply text-lg leading-relaxed text-foreground;
 }
 
 .markdown p,
@@ -15,4 +15,17 @@
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
-} */
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  @apply text-foreground;
+}
+
+.markdown a {
+  @apply text-primary;
+}

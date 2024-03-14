@@ -9,7 +9,9 @@ export function Footer() {
       <Container>
         <div className=" grid grid-cols-1 md:grid-cols-2">
           <div className=" py-4">
-            <p className=" text-lg font-semibold">Nova Blog</p>
+            <p className=" text-lg font-semibold first-letter:text-primary">
+              Nova Blog
+            </p>
 
             <p className=" text-sm text-secondary-foreground pt-2">
               Nourish your intellect with our content

@@ -21,7 +21,9 @@ export function Header() {
       <Container>
         <section className=" py-2 flex justify-between items-center ">
           <Link href={"/"}>
-            <p className=" text-lg font-semibold">Nova Blog</p>
+            <p className=" text-lg font-semibold first-letter:text-primary">
+              Nova Blog
+            </p>
           </Link>
 
           <DropdownMenu>
