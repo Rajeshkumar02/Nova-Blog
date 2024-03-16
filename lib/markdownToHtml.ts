@@ -8,6 +8,7 @@ import { transformerNotationDiff } from "shikiji-transformers";
 export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(remarkParse)
+    //@ts-ignore
     .use(remarkRehype)
     .use(rehypePrettyCode, {
       theme: "dracula",
