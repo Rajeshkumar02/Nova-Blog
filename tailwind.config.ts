@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 import type { Config } from "tailwindcss";
 
 const config = {
@@ -12,6 +14,9 @@ const config = {
   ],
   prefix: "",
   theme: {
+    hljs: {
+      theme: "atom-one-dark",
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -76,7 +81,16 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    require("tailwind-highlightjs"),
+  ],
+  safelist: [
+    {
+      pattern: /hljs+/,
+    },
+  ],
 } satisfies Config;
 
 export default config;

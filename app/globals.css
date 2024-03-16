@@ -57,3 +57,60 @@
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+pre {
+  @apply !p-0 !m-0 !py-3  !min-w-0 overflow-x-scroll;
+}
+
+code {
+  counter-reset: line;
+  @apply !text-primary;
+}
+
+code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  padding-left: 1rem;
+  text-align: right;
+}
+
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 2rem;
+}
+
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 3rem;
+}
+
+figcaption {
+  @apply text-sm bg-accent dark:bg-accent !max-w-xs md:!max-w-2xl !text-accent-foreground p-1 pl-3 rounded-t-lg;
+}
+
+[data-highlighted-line] {
+  @apply !bg-slate-700 rounded-sm !min-w-fit !py-1;
+}
+
+[data-highlighted-line]::before {
+  @apply !border-l-primary border-l-[5px];
+}
+
+figure[data-rehype-pretty-code-figure] > figcaption + pre {
+  @apply !rounded-b-lg !rounded-t-none !max-w-xs md:!max-w-2xl max-h-screen;
+}

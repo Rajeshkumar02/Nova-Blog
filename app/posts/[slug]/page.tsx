@@ -18,7 +18,7 @@ export default async function Post({ params }: Params) {
   return (
     <>
       <Container>
-        <div className=" items-center w-full flex flex-col">
+        <div className=" items-center w-full flex flex-col text-justify">
           <div className="max-w-4xl">
             <article className="mb-16 ">
               <PostHeader

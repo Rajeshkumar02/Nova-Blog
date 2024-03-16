@@ -1,21 +1,25 @@
+import remarkGfm from "remark-gfm";
+import nextMDX from "@next/mdx";
+import rehypeHighlight from "rehype-highlight";
+import remarkRehype from "remark-rehype";
+
 /** @type {import('next').NextConfig} */
 
-import remarkGfm from "remark-gfm";
-import createMDX from "@next/mdx";
-
 const nextConfig = {
-  // Configure `pageExtensions`` to include MDX files
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  // Optionally, add any other Next.js config below
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: ["drive.google.com", "imgs.search.brave.com", "lh3.google.com"],
+  },
 };
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
+const withMDX = nextMDX({
   options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
+    remarkPlugins: [remarkGfm, remarkRehype],
+    rehypePlugins: [rehypeHighlight],
   },
 });
 
-// Merge MDX config with Next.js config
 export default withMDX(nextConfig);

@@ -15,7 +15,7 @@ export function Post() {
     <div>
       <Container>
         {posts.length > 0 && <MoreStories posts={posts} title="Recent post" />}
-        <Link href={`?${PAGE}`}>All Posts</Link>
+        {/* <Link href={`?${PAGE}`}>All Posts</Link> */}
       </Container>
     </div>
   );
