@@ -7,9 +7,6 @@ import remarkRehype from "remark-rehype";
 
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ["drive.google.com", "imgs.search.brave.com", "lh3.google.com"],
   },
