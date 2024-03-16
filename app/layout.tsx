@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Footer, Header } from "@/components/molecule";
 import "@code-hike/mdx/dist/index.css";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Analytics />
           <Toaster />
           <Footer />
         </ThemeProvider>
