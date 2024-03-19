@@ -34,9 +34,13 @@ export function searchPosts(searchQuery?: string): Post[] {
     .filter((post) => {
       if (searchQuery) {
         const regex = new RegExp(searchQuery, "i");
-        return regex.test(post.title) || regex.test(post.content);
+        return (
+          regex.test(post.title) ||
+          regex.test(post.content) ||
+          regex.test(post.excerpt)
+        );
       }
-      return true;
+      return false;
     })
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;

@@ -3,7 +3,7 @@ import Container from "../container";
 import SearchComponent from "@/components/search";
 import ChangeTheme from "./theme";
 
-export function Header() {
+export function Header({ search }: { search?: string }) {
   return (
     <div className="bg-background border-b px-1 mb-3">
       <Container>
@@ -15,7 +15,7 @@ export function Header() {
           </Link>
 
           <div className=" flex flex-row gap-4 items-center">
-            <SearchComponent />
+            <SearchComponent search={search} />
 
             <ChangeTheme />
           </div>
