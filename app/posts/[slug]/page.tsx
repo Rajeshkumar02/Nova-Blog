@@ -1,4 +1,5 @@
 import { getAllPosts, getPostBySlug } from "@/api/getallpost";
+import { Header } from "@/components/molecule";
 import Container from "@/components/molecule/container";
 import { PostBody } from "@/components/post-body";
 import { PostHeader } from "@/components/post-header";
@@ -6,7 +7,14 @@ import markdownToHtml from "@/lib/markdownToHtml";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export default async function Post({ params }: Params) {
+export default async function Post({
+  params,
+  searchParams,
+}: {
+  params: any;
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const search = searchParams["search"] as string | undefined;
   const post = getPostBySlug(params.slug);
 
   if (!post) {
@@ -17,6 +25,7 @@ export default async function Post({ params }: Params) {
 
   return (
     <>
+      <Header search={search} />
       <Container>
         <div className=" items-center w-full flex flex-col text-justify">
           <div className="max-w-4xl">
@@ -27,6 +36,7 @@ export default async function Post({ params }: Params) {
                 date={post.date}
                 author={post.author}
                 postId={post?.postId || post.title}
+                tags={post?.tags}
               />
               <PostBody content={content} />
             </article>
