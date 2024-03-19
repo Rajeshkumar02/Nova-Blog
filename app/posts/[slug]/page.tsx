@@ -27,6 +27,7 @@ export default async function Post({ params }: Params) {
                 date={post.date}
                 author={post.author}
                 postId={post?.postId || post.title}
+                tags={post?.tags}
               />
               <PostBody content={content} />
             </article>

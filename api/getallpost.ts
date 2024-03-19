@@ -18,17 +18,26 @@ export function getPostBySlug(slug: string) {
   return { ...data, slug: realSlug, content } as Post;
 }
 
-export function getAllPosts(): Post[] {
+export function getAllPosts(tag?: string): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
+    .filter((post) => !tag || post.tags.includes(tag))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
 
-export function getPostByPagination(page: number, limit: number): Post[] {
-  const posts = getAllPosts();
-  const start = (page - 1) * limit;
-  const end = start + limit;
-  return posts.slice(start, end);
+export function searchPosts(searchQuery?: string): Post[] {
+  const slugs = getPostSlugs();
+  const posts = slugs
+    .map((slug) => getPostBySlug(slug))
+    .filter((post) => {
+      if (searchQuery) {
+        const regex = new RegExp(searchQuery, "i");
+        return regex.test(post.title) || regex.test(post.content);
+      }
+      return true;
+    })
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  return posts;
 }
