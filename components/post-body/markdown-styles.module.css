@@ -26,6 +26,10 @@
   @apply text-foreground;
 }
 
+.markdown strong {
+  @apply font-extrabold text-foreground;
+}
+
 .markdown a {
   @apply text-primary;
 }
