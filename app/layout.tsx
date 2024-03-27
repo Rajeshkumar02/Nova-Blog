@@ -6,6 +6,7 @@ import { Footer, Header } from "@/components/molecule";
 import "@code-hike/mdx/dist/index.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
+import { Provider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Provider>{children}</Provider>
           <Analytics />
           <Toaster />
           <Footer />
