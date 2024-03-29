@@ -1,22 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,jsx,ts,tsx,md,mdx}",
-    "./components/**/*.{js,jsx,ts,tsx,md,mdx}",
-
-    // Or if using `src` directory:
-    "./src/**/*.{js,jsx,ts,tsx,md,mdx}",
-    "./app/**/*.{js,jsx,ts,tsx,md,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
-    hljs: {
-      theme: "atom-one-dark",
-    },
     container: {
       center: true,
       padding: "2rem",
@@ -25,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -81,16 +78,7 @@ const config = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@tailwindcss/typography"),
-    require("tailwind-highlightjs"),
-  ],
-  safelist: [
-    {
-      pattern: /hljs+/,
-    },
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
 
 export default config;

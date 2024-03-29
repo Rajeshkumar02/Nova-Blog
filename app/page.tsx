@@ -1,38 +1,38 @@
-import { getAllPosts } from "@/api/getallpost";
-import PaginationControls from "@/components/PaginationControls";
-import { Header } from "@/components/molecule";
-import Container from "@/components/molecule/container";
-import { MoreStories } from "@/components/molecule/more-stories";
+import { posts } from "#site/content";
+import { Pagination } from "@/components/pagination";
+import PostCard from "@/components/post-card";
+import { sortPosts } from "@/lib/utils";
 
-export default function Home({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const page = searchParams["page"] ?? "1";
-  const per_page = searchParams["per_page"] ?? "6";
-  const tag = searchParams["tag"] as string | undefined;
-  const search = searchParams["search"] as string | undefined;
+const POSTS_PER_PAGE = 9;
 
-  const start = (Number(page) - 1) * Number(per_page);
-  const end = start + Number(per_page);
+interface BlogPageProps {
+  searchParams: {
+    page?: string;
+    tag?: string;
+  };
+}
 
-  const posts = getAllPosts(tag);
+export default function Home({ searchParams }: BlogPageProps) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const sortedPosts = sortPosts(
+    posts.filter(
+      (post) =>
+        post.published &&
+        ((searchParams?.tag && post.tags?.includes(searchParams.tag)) ||
+          !searchParams.tag)
+    )
+  );
+  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
-  const entries = posts.slice(start, end);
-
+  const displayPosts = sortedPosts.slice(
+    POSTS_PER_PAGE * (currentPage - 1),
+    POSTS_PER_PAGE * currentPage
+  );
   return (
-    <>
-      <Header search={search} />
-      <Container>
-        {entries.length > 0 && (
-          <MoreStories posts={entries} title="Recent post" />
-        )}
-        <PaginationControls
-          hasNextPage={end < posts.length}
-          hasPrevPage={start > 0}
-        />
-      </Container>
-    </>
+    <div className=" mx-4 md:container">
+      <PostCard title="Recent Posts" post={displayPosts} />
+
+      <Pagination totalPages={totalPages} className="justify-end mt-4 my-4" />
+    </div>
   );
 }
