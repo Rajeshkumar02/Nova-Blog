@@ -63,16 +63,20 @@ Now that we have set up the project, let's start building the notes application.
 
 The folder structure of the project should look like this:
 
-```bash
-NotesApp/
-├── node_modules/
-├── src/
-│   ├── list.tsx
-│   └── types.d.ts
-├── App.tsx
-├── package.json
-└── tsconfig.json
-```
+<div className=" p-4 border rounded-lg w-fit">
+  <FileTree>
+    <FileTreeFolder name="NotesApp" defaultOpen>
+      <FileTreeFolder name="node_modules" />
+      <FileTreeFolder name="src" defaultOpen>
+        <FileTreeFile name="list.tsx" />
+        <FileTreeFile name="types.d.ts" />
+      </FileTreeFolder>
+      <FileTreeFile name="App.tsx" />
+      <FileTreeFile name="package.json" />
+      <FileTreeFile name="tsconfig.json" />
+    </FileTreeFolder>
+  </FileTree>
+</div>
 
 First, let's create a new file called `types.d.ts` in the `src` directory to define the types used in the application.
 
