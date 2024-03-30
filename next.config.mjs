@@ -3,7 +3,12 @@ import { build } from "velite";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["drive.google.com", "imgs.search.brave.com", "lh3.google.com"],
+    domains: [
+      "drive.google.com",
+      "imgs.search.brave.com",
+      "lh3.google.com",
+      "og-image.vercel.app",
+    ],
   },
 };
 export default {
