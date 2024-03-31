@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { PostHeader } from "@/components/post-header";
+import { FileTree, FileTreeFile, FileTreeFolder } from "@/components/file-tree";
 
 interface PostPageProps {
   params: {
@@ -57,12 +58,12 @@ export async function generateMetadata({
         },
       ],
     },
-    // twitter: {
-    //   card: "summary_large_image",
-    //   title: post.title,
-    //   description: post.description,
-    //   images: [`/api/og?${ogSearchParams.toString()}`],
-    // },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [`/api/og?${ogSearchParams.toString()}`],
+    },
   };
 }
 
@@ -84,6 +85,7 @@ export default async function PostPage({ params }: PostPageProps) {
         date={post.date}
       />
       <div className=" text-left">
+        {/* <p dangerouslySetInnerHTML={{ __html: post.body }} /> */}
         <MDXContent code={post.body} />
       </div>
     </article>

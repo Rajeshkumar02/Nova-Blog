@@ -1,6 +1,8 @@
 import Image from "next/image";
 import * as runtime from "react/jsx-runtime";
 import { Callout } from "./callout";
+import { FileTree, FileTreeFile, FileTreeFolder } from "./file-tree";
+import { TimeLine } from "./time-line";
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
@@ -10,6 +12,10 @@ const useMDXComponent = (code: string) => {
 const components = {
   Image,
   Callout,
+  FileTree,
+  FileTreeFolder,
+  FileTreeFile,
+  TimeLine,
 };
 
 interface MdxProps {

@@ -5,6 +5,9 @@
 figure[data-rehype-pretty-code-figure] > figcaption + pre {
   @apply !rounded-t-none;
 }
+p > code {
+  @apply !text-primary px-1 py-1 rounded-md;
+}
 
 [data-rehype-pretty-code-figure] code {
   @apply text-sm !leading-relaxed md:!leading-loose border-0 p-0;
