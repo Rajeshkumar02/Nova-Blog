@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { PostHeader } from "@/components/post-header";
+import { FileTree, FileTreeFile, FileTreeFolder } from "@/components/file-tree";
 
 interface PostPageProps {
   params: {
@@ -84,6 +85,7 @@ export default async function PostPage({ params }: PostPageProps) {
         date={post.date}
       />
       <div className=" text-left">
+        {/* <p dangerouslySetInnerHTML={{ __html: post.body }} /> */}
         <MDXContent code={post.body} />
       </div>
     </article>

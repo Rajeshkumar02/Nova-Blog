@@ -2,6 +2,7 @@ import { defineConfig, s, defineCollection } from "velite";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { transformerTwoslash } from "@shikijs/twoslash";
 
 const computedFeilds = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -45,7 +46,14 @@ export default defineConfig({
     remarkPlugins: [],
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { theme: "dracula", keepBackground: false }],
+      [
+        rehypePrettyCode,
+        {
+          theme: "dracula",
+          keepBackground: false,
+          transformers: [transformerTwoslash()],
+        },
+      ],
       [
         rehypeAutolinkHeadings,
         {

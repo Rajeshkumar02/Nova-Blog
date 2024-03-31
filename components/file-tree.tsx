@@ -9,7 +9,7 @@ interface FolderProps {
   open?: boolean;
   defaultOpen?: boolean;
   onToggle?: (open: boolean) => void;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 interface FileProps {
