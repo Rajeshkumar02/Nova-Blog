@@ -25,11 +25,15 @@ export function sortPosts(posts: Array<Post>) {
 }
 
 export function searchPosts(search: string): Array<Post> {
-  return posts.filter((post) => {
-    const searchTerms = search.toLowerCase().split(" ");
-    const postContent = `${post.title} ${post.description}`.toLowerCase();
-    return searchTerms.every((term) => postContent.includes(term));
-  });
+  return posts
+    .filter((post) => {
+      return post.published;
+    })
+    .filter((post) => {
+      const searchTerms = search.toLowerCase().split(" ");
+      const postContent = `${post.title} ${post.description}`.toLowerCase();
+      return searchTerms.every((term) => postContent.includes(term));
+    });
 }
 
 export function getAllTags(posts: Array<Post>) {

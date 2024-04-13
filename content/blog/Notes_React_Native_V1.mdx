@@ -18,6 +18,7 @@ author:
   id: 001
   name: Rajeshkumar S
   avatar: "https://drive.google.com/uc?export=download&id=1UwnFtIJ4G_TCzXjA_vMW6xQx2ENEc7dM"
+published: true
 ---
 
 ## Introduction
@@ -80,16 +81,16 @@ The folder structure of the project should look like this:
 
 First, let's create a new file called `types.d.ts` in the `src` directory to define the types used in the application.
 
-```tsx title="types.d.ts"
+```js title="types.d.ts"
 export type NotesI = {
-  id: number;
-  title: string;
+  id: number,
+  title: string,
 };
 ```
 
 Then, let's start by editing the `App.tsx` file to create the `Note` component. This component will represent a single note in the application.
 
-```tsx title="App.tsx" showLineNumbers
+```js title="App.tsx" showLineNumbers
 import {
   SafeAreaView,
   StyleSheet,
@@ -183,7 +184,7 @@ In the above code, we have created the `Note` component, which consists of a tex
 
 Next, let's create the `list.tsx` file in the `src` directory to display the list of notes.
 
-```tsx title="list.tsx" showLineNumbers
+```js title="list.tsx" showLineNumbers
 import React from "react";
 import { FlatList, View, Text, StyleSheet } from "react-native";
 import { NotesI } from "./types.d";
