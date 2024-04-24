@@ -23,6 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scrollbar-hide scroll-pt-[3.5rem]">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="ayalgw_P5E-_y0QviIHhrfBh9O0yEV8VoEFqqjPoMa0"
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
