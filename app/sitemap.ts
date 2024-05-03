@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemap = mdxFilePaths.map((filePath) => {
     const slug = path.basename(filePath, ".mdx"); // remove the .mdx extension from the file name to get the slug
     const category = path.basename(path.dirname(filePath));
-    const url = `${WEBSITE_URL}/${category}/${slug}`;
+    const url = `${WEBSITE_URL}/blog/${category}/${slug}`;
     const lastModified = fs.statSync(filePath).mtime;
     return {
       url,

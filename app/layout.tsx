@@ -28,7 +28,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="LiVS5zSsOXXbDhqN3Jcg2WONLpCtEI1Fhvm2laimQr4"
         />
-        <meta name="google-adsense-account" content="ca-pub-6894062980363896"/>
+        <meta name="google-adsense-account" content="ca-pub-6894062980363896" />
       </head>
       <body
         className={cn(
@@ -50,6 +50,12 @@ export default function RootLayout({
             <Analytics />
           </div>
         </ThemeProvider>
+
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6894062980363896"
+          crossOrigin="anonymous"
+        ></script>
       </body>
     </html>
   );
