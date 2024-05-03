@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "@/styles/mdx.css";
 import { PostHeader } from "@/components/post-header";
-import { FileTree, FileTreeFile, FileTreeFolder } from "@/components/file-tree";
 
 interface PostPageProps {
   params: {
