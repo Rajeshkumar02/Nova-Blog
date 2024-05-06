@@ -43,7 +43,7 @@ export default function SearchModel() {
           />
         </div>
         <div className=" flex flex-col gap-3">
-          {searchPost.map((post: Post, index: number) => {
+          {searchPost?.slice(0, 4)?.map((post: Post, index: number) => {
             return (
               <div key={index}>
                 <p
