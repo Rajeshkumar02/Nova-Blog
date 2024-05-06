@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return {
       url,
       lastModified,
+      priority: 0.9,
     };
   });
 
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   sitemap.push({
     url: WEBSITE_URL,
     lastModified: new Date(),
+    priority: 0.9,
   });
 
   return sitemap;
