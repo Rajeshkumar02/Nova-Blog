@@ -6,6 +6,7 @@ import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { db } from "@/config/app";
+import Link from "next/link";
 
 interface DeviceInfo {
   browser: string;
@@ -117,8 +118,15 @@ function SiteFooter() {
             </Button>
           </div>
         </div>
-        <div className="mt-8 text-xs text-neutral-600">
-          <p>&copy; {year} Nexus Blog</p>
+        <div className=" mt-8 flex gap-8 justify-between">
+          <div className=" text-xs text-neutral-600">
+            <p>&copy; {year} Nexus Blog</p>
+          </div>
+          <Link href="/terms">
+            <p className=" cursor-pointer text-xs text-neutral-600">
+              Terms and Conditions
+            </p>
+          </Link>
         </div>
       </div>
     </footer>
